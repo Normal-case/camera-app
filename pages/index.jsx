@@ -31,8 +31,9 @@ export default function Home() {
   const getCam = (callback) => {
     try {
       const constraints = {
-        'video': true,
-        'audio': false
+        'video': {facingMode: {exact: 'environment'}},
+        'audio': false,
+
       }
       // navigator.getUserMedia = navigator.mediaDevices.getUserMedia || navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia
       navigator.mediaDevices.getUserMedia(constraints)
