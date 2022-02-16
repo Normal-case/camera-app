@@ -20,12 +20,13 @@ export default function Home() {
     if(timer) {
       const s = videoRef.current.srcObject
       s.getTrack().forEach((track) => {track.stop()})
-    } else P
-    getCam((stream) => {
+    } else {
+      getCam((stream) => {
       setTimer(true)
       videoRef.current.srcObject = stream
     })
     setTimer(!timer)
+    }
   }
 
   const getCam = (callback) => {
