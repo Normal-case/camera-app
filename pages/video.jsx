@@ -10,21 +10,10 @@ export default function Video() {
   }, [])
 
   const listDevices = async () => {
-    try {
-      const devices = await navigator.mediaDevices.enumerateDevices()
-      devices.forEach(device => {
-        console.log(device)
-        switch (device.kind) {
-          case 'audioinput':
-            break
-          case 'videoinput':
-            refSelectVideo.current.appendChild(device.deviceId)
-        }
-      })
-    } catch (error) {
-      console.log(error)
-      return undefined
-    }
+    const devices = await navigator.mediaDevices.enumerateDevices()
+    devices.forEach(device => {
+      console.log(device)
+    })
   }
 
   const getParams = video => {
