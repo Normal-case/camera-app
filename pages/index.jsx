@@ -21,6 +21,7 @@ export default function Home() {
       s.getTracks().forEach(track => {
         track.stop()
       })
+      setTimer(!timer)
     } else {
       getCam(stream => {
         setTimer(true)
