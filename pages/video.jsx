@@ -11,10 +11,12 @@ export default function Video() {
 
   const listDevices = async () => {
     const devices = await navigator.mediaDevices.enumerateDevices()
-    devices.forEach(device => {
-      if (device.kind === 'videoinput') {
-        console.log(device)
-      }
+    const cameras = devices.filter(device => device.kind == 'videoinput')
+    cameras.forEach(camera => {
+      const option = document.createElement('option')
+      option.value = camera.deviceId
+      option.text = camera.label
+      refSelectVideo.current.appendChild(option)
     })
   }
 
@@ -37,6 +39,9 @@ export default function Video() {
   }
   return (
     <>
+      <div>
+        <select ref={refSelectVideo} onChange={e => startWebcam()} />
+      </div>
       <video ref={refVideo} autoPlay />
     </>
   )
