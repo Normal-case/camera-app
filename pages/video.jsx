@@ -29,11 +29,15 @@ export default function Video() {
   }
 
   const startWebcam = async () => {
-    const stream = await navigator.mediaDevices.getUserMedia(
-      getParams(refSelectVideo.current.value)
-    )
-
-    refVideo.current.srcObject = stream
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia(
+        getParams(refSelectVideo.current.value)
+      )
+      refVideo.current.srcObject = stream
+    } catch (error) {
+      console.log(error)
+      return undefined
+    }
   }
   return (
     <>
