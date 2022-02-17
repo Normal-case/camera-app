@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 
-export default function device() {
+export default function Device() {
   useEffect(() => {
     testDevice()
   }, [])
