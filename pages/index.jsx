@@ -36,7 +36,7 @@ export default function Home() {
         'audio': false,
 
       }
-      // navigator.getUserMedia = navigator.mediaDevices.getUserMedia || navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia
+      navigator.getUserMedia = navigator.mediaDevices.getUserMedia || navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia
       navigator.mediaDevices.getUserMedia(constraints)
         .then(callback)
     } catch (error) {
