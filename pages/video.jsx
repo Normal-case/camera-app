@@ -6,7 +6,7 @@ export default function Video() {
 
   useEffect(() => {
     listDevices();
-    // startWebcam()
+    startWebcam();
   }, []);
 
   const listDevices = async () => {
